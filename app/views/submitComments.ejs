@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div class="commit-form-header" border="0" align="center">
+        <h2>Welcome
+            <%= username %> to comment page </h2>
+    </div>
+    <div class="commit-form" border="0" align="center">
+        <form action="/submitComment" method="POST">
+            <p>
+                <h4>Please fill out the form and click submit button</h4><br>
+                <p>
+                    <label>Course Code</label><br>
+                    <input type="text" name="courseCode">
+                </p>
+                <p>
+                    <label>Course Name</label><br>
+                    <input type="text" name="courseName">
+                </p>
+                <p>
+                    <label>Program name</label><br>
+                    <input type="text" name="program" required>
+                </p>
+                <p>
+                    <label>Semester</label><br>
+                    <input type="text" name="Semester" required>
+                </p>
+
+                <p>
+                    <label>Your Comments</label><br>
+                    <textarea columns="40" rows="5" name="comment" autocomplete="on" minlength="15" maxlength="140" cols="40" wrap="soft">
+                </textarea>
+                </p>
+                <p>
+                    <button input type="submit" name="submit" class="comment-submit">Submit</button>
+
+                </p>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
