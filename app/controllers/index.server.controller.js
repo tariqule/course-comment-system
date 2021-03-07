@@ -1,4 +1,5 @@
 const Comment = require("mongoose").model("Comment");
+const Student = require("mongoose").model("User");
 
 // Create a new 'render' controller method
 exports.render = function (req, res) {
@@ -19,6 +20,7 @@ exports.render = function (req, res) {
 exports.renderAddUser = function (req, res) {
   res.render("signup", {
     title: "Sign up",
+    error: "",
   });
 };
 
@@ -26,6 +28,7 @@ exports.renderAddUser = function (req, res) {
 exports.displayLoginPage = function (req, res) {
   res.render("login", {
     title: "Login",
+    error: "",
   });
 };
 
@@ -39,13 +42,41 @@ exports.renderReadUser = function (req, res) {
 exports.viewAllComments = function (req, res) {
   const userSession = req.session.user;
   // Use the 'response' object to render the 'read_user' view with a 'title' property
-  Comment.find({}, (err, obj) => {
-    console.log(obj);
-    res.render("viewAllComments", {
-      title: "Read user by username",
-      email: userSession?.email || "User Not Logged in.",
-      comments: obj,
-    });
+  // Comment.find({}, (err, obj) => {
+  //   console.log(obj);
+  //   res.render("viewAllComments", {
+  //     title: "Read user by username",
+  //     email: userSession?.email || "User Not Logged in.",
+  //     comments: obj,
+  //   });
+  // });
+
+  // var email = req.session.email;
+
+  Student.findOne({ email: userSession?.email || "" }, (err, student) => {
+    if (err) {
+      return getErrorMessage(err);
+    }
+    //
+    req.id = student?._id;
+    console.log(req?.id);
+  }).then(function () {
+    //find the posts from this author
+    Comment.find(
+      {
+        student: req?.id,
+      },
+      (err, comments) => {
+        if (err) {
+          return getErrorMessage(err);
+        }
+        //res.json(comments);
+        res.render("viewAllComments", {
+          comments: comments,
+          email: userSession?.email || "User Not Logged in.",
+        });
+      }
+    );
   });
 
   // const userSession = req.session.user;

@@ -1,5 +1,5 @@
 {
-    "name": "school-course-rating-system",
+    "name": "game-survey-system",
     "version": "0.0.5",
     "dependencies": {
         "body-parser": "^1.19.0",

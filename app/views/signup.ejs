@@ -6,69 +6,64 @@
     <title>
         signup
     </title>
-    <link rel="stylesheet" type="text/css" href="css/addstyle.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/addstyle.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <!-- Load the static image file  -->
-    <form action="/users" method="post">
-        <div>
-            <!-- Use the 'title' property to render a title element  -->
 
+    <div class="container w-100  d-flex justify-content-center align-items-center mt-5 ">
 
-            <div class="container">
-                <label>
-                    <b>First Name:</b>
-                </label>
-                <input type="text" class="fields" name="firstName" placeholder="john" />
-            </div>
-            <div class="container">
-                <label>
-                    <b>LastName:</b>
-                </label>
-                <input type="text" class="fields" name="lastName" placeholder="smith" />
-            </div>
-            <div class="container">
-                <label>
-                    <b>email:</b>
-                </label>
-                <input type="text" class="fields" name="email" placeholder="john@example.com" />
-            </div>
-            <div class="container">
-                <label>
-                    <b>Password:</b>
-                </label>
-                <input type="text" class="fields" name="password" placeholder="pass1234" />
-            </div>
-            <div class="container">
-                <label>
-                    <b>User name:</b>
-                </label>
+    
 
-                <input type="text" class="fields" name="username" placeholder="user123" />
-            </div>
-            <div class="container">
-                <label>
-                    <b>Favorite subject:</b>
-                </label>
-
-                <input type="text" class="fields" name="favSubject" placeholder="C#/Java/JavaScript" />
-            </div>
-
-            <div class="container">
-                <label>
-                    <b>Major:</b>
-                </label>
-
-                <input type="text" class="fields" name="major" placeholder="Programming/QA/Business analyst" />
-            </div>
-
-            <div class="container">
-                <button type="submit" class="form-field-no-caption">Submit</button>
-            </div>
+        <div class="card p-3 " style="width: 100% " >
+        
+<h3>Sign up Now</h3>
+    <form  action="/users" method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name:</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   name="firstName" >
+          </div> <div class="form-group">
+            <label for="exampleInputEmail1">LastName:</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   name="lastName" >
+          </div> 
+       
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  name="email" >
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-    </form>
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">User Name:</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="username" >
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Favorite subject:</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   name="favSubject" >
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Major:</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   name="major" >
+
+          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+
+</div>
 
 </body>
 

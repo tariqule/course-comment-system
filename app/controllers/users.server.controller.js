@@ -222,12 +222,12 @@ exports.loginUser = async function (req, res, next) {
   console.log(findUser);
 
   req.session.user = findUser;
-  try {
-  } catch (error) {
-    console.log("ERROR: => " + error);
-  }
 
-  res.render("submitComments", { username: findUser.username });
+  if (findUser.username) {
+    res.render("submitComments", { username: findUser?.username });
+  } else {
+    res.render("login", { error: "Invalid User Credentials" });
+  }
 };
 
 exports.findAllComments = async function (req, res, next) {};
